@@ -162,3 +162,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+### VisualStudio template
+.vs
+CMakeSettings.json
