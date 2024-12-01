@@ -4,7 +4,7 @@
 
 namespace ext
 {
-    class Console
+    class Console final
     {
     public:
         static void Write(const char* str);
@@ -16,6 +16,6 @@ namespace ext
         static void WriteLine(const std::wstring& str);
     };
 
-    // Alias for ext::console
+    // Alias
     using console = Console;
 }
