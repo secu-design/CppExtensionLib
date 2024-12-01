@@ -44,7 +44,7 @@ namespace ext
         String str = *this;
         std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
         {
-            return tolower(c);
+            return static_cast<unsigned char>(tolower(c));
         });
         return str;
     }
@@ -54,7 +54,7 @@ namespace ext
         String str = *this;
         std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
         {
-            return toupper(c);
+            return static_cast<unsigned char>(toupper(c));
         });
         return str;
     }
