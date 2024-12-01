@@ -39,6 +39,7 @@ CMakeUserPresets.json
 .idea/**/shelf
 .idea/**/editor.xml
 .idea/**/Project_Default.xml
+.idea/**/.name
 
 # AWS User-specific
 .idea/**/aws.xml
