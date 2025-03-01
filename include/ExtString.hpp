@@ -14,12 +14,12 @@ namespace ext
         explicit String(const std::string& str) : std::string{str} {}
 
         // Extended methods
-        String TrimStart() const;
-        String TrimEnd() const;
-        String Trim() const;
+        [[nodiscard]] String TrimStart() const;
+        [[nodiscard]] String TrimEnd() const;
+        [[nodiscard]] String Trim() const;
 
-        String ToLower() const;
-        String ToUpper() const;
+        [[nodiscard]] String ToLower() const;
+        [[nodiscard]] String ToUpper() const;
 
         // Constants
         static const char TAB;
