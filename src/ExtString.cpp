@@ -17,6 +17,11 @@ namespace ext
 
     // Implementation of the extended methods
 
+    /**
+     * @brief Removes all the leading white-space characters from the current string.
+     * 
+     * @returns A new string with all the leading white-space characters removed.
+     */
     string String::TrimStart() const
     {
         const size_type pos_start = find_first_not_of(WHITESPACE_CHARS);
@@ -27,6 +32,11 @@ namespace ext
         return String(substr(pos_start));
     }
 
+    /**
+     * @brief Removes all the trailing white-space characters from the current string.
+     *
+     * @returns A new string with all the trailing white-space characters removed.
+     */
     string String::TrimEnd() const
     {
         const size_type pos_end = find_last_not_of(WHITESPACE_CHARS);
@@ -37,11 +47,25 @@ namespace ext
         return String(substr(0, pos_end + 1));
     }
 
+    /**
+     * @brief Removes all the leading and trailing white-space characters from the current string.
+     *
+     * @returns A new string with all the leading and trailing white-space characters removed.
+     */
     string String::Trim() const
     {
         return TrimStart().TrimEnd();
     }
 
+    /**
+     * @brief Converts all characters in the string to lowercase according to the character
+     * conversion rules defined by the currently installed C locale.
+     *
+     * In the default "C" locale, the following lowercase letters abcdefghijklmnopqrstuvwxyz
+     * are replaced with respective lowercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+     *
+     * @return A new string with all characters converted to lowercase.
+     */
     string String::ToLower_Ascii7() const
     {
         String str = *this;
@@ -52,6 +76,15 @@ namespace ext
         return str;
     }
 
+    /**
+     * @brief Converts all characters in the string to uppercase according to the character
+     * conversion rules defined by the currently installed C locale.
+     *
+     * In the default "C" locale, the following uppercase letters abcdefghijklmnopqrstuvwxyz
+     * are replaced with respective uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+     *
+     * @return A new string with all characters converted to uppercase.
+     */
     string String::ToUpper_Ascii7() const
     {
         String str = *this;
