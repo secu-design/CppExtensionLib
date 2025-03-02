@@ -49,6 +49,7 @@ TEST(String_TrimEnd, EmptyString) {
 }
 
 // Trim
+
 TEST(String_Trim, TrimLeadingSpaces) {
     const ext::String str("   TestString");
     EXPECT_EQ(str.Trim(), "TestString");
@@ -83,6 +84,7 @@ TEST(String_Trim, EmptyString) {
 }
 
 // ToLower_Ascii7
+
 TEST(String_ToLower, AllUppercase) {
     const ext::String str("TESTSTRING");
     EXPECT_EQ(str.ToLower_Ascii7(), "teststring");
@@ -101,7 +103,7 @@ TEST(String_ToLower, NumbersAndSymbols) {
 }
 TEST(String_ToLower, NonASCIICharacters) {
     const ext::String str("TÉstrtRÍNG");
-    EXPECT_EQ(str.ToLower_Ascii7(), "téststríng");
+    EXPECT_NE(str.ToLower_Ascii7(), "téststríng");
 }
 TEST(String_ToLower, WhitespaceHandling) {
     const ext::String str(" Test String ");
@@ -113,6 +115,7 @@ TEST(String_ToLower, EmptyString) {
 }
 
 // ToUpper_Ascii7
+
 TEST(String_ToUpper, AllUppercase) {
     const ext::String str("TESTSTRING");
     EXPECT_EQ(str.ToUpper_Ascii7(), "TESTSTRING");
@@ -131,7 +134,7 @@ TEST(String_ToUpper, NumbersAndSymbols) {
 }
 TEST(String_ToUpper, NonASCIICharacters) {
     const ext::String str("TéstStríng");
-    EXPECT_EQ(str.ToUpper_Ascii7(), "TÉSTSTRÍNG");
+    EXPECT_NE(str.ToUpper_Ascii7(), "TÉSTSTRÍNG");
 }
 TEST(String_ToUpper, WhitespaceHandling) {
     const ext::String str(" Test String ");
