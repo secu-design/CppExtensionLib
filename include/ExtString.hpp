@@ -18,8 +18,8 @@ namespace ext
         [[nodiscard]] String TrimEnd() const;
         [[nodiscard]] String Trim() const;
 
-        [[nodiscard]] String ToLower() const;
-        [[nodiscard]] String ToUpper() const;
+        [[nodiscard]] String ToLower_Ascii7() const;
+        [[nodiscard]] String ToUpper_Ascii7() const;
 
         // Constants
         static const char TAB;

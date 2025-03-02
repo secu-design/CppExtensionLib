@@ -1,10 +1,12 @@
 #include "../include/ExtString.hpp"
 
+#include <cctype>     // std::tolower, std::toupper
 #include <algorithm>  // std::transform
 
 namespace ext
 {
     // Initialize the static constants
+
     const char String::TAB{'\t'};
     const char String::NEWLINE{'\n'};
     const char String::VERTICAL_TAB{'\v'};
@@ -13,7 +15,8 @@ namespace ext
     const char String::SPACE{' '};
     const char* String::WHITESPACE_CHARS{" \t\n\v\f\r"};
 
-    // Extended methods
+    // Implementation of the extended methods
+
     string String::TrimStart() const
     {
         const size_type pos_start = find_first_not_of(WHITESPACE_CHARS);
@@ -39,7 +42,7 @@ namespace ext
         return TrimStart().TrimEnd();
     }
 
-    string String::ToLower() const
+    string String::ToLower_Ascii7() const
     {
         String str = *this;
         std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
@@ -49,7 +52,7 @@ namespace ext
         return str;
     }
 
-    string String::ToUpper() const
+    string String::ToUpper_Ascii7() const
     {
         String str = *this;
         std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
