@@ -1,67 +1,106 @@
-#include "../include/ExtConsole.hpp"
-
 #include <iostream>
-using std::cout, std::endl, std::wcout;
+
+#include "ExtConsole.hpp"
+
 
 namespace ext
 {
-    /**
-     * @brief Writes a C-String to the standard output stream.
-     * 
-     * @param str The C-String to write.
-     */
-    void Console::Write(const char *str)
+    using
+        std::cout, std::cerr,
+        std::wcout, std::wcerr;
+
+
+    ConsoleClass Console;
+
+
+    void ConsoleClass::ErrorStream::Write(const char* str)
     {
-        cout << str;
+        cerr << str;
     }
 
-    /**
-     * @brief Writes a std::string to the standard output stream.
-     *
-     * @param str The std::string to write.
-     */
-    void Console::Write(const std::string &str)
+    void ConsoleClass::ErrorStream::Write(const string& text)
     {
-        cout << str;
+        cerr << text;
     }
 
-    /**
-     * @brief Writes a std::wstring to the standard output stream.
-     *
-     * @param str The std::wstring to write.
-     */
-    void Console::Write(const std::wstring &str)
+    void ConsoleClass::ErrorStream::Write(const wstring& text)
     {
-        wcout << str;
+        wcerr << text;
     }
 
-    /**
-     * @brief Writes a C-String to the standard output stream followed by a newline.
-     *
-     * @param str The C-String to write.
-     */
-    void Console::WriteLine(const char *str)
+    void ConsoleClass::ErrorStream::WriteLine(const char* str)
     {
-        cout << str << endl;
+        cerr << str << "\n";
     }
 
-    /**
-     * @brief Writes a std::string to the standard output stream followed by a newline.
-     *
-     * @param str The std::string to write.
-     */
-    void Console::WriteLine(const std::string &str)
+    void ConsoleClass::ErrorStream::WriteLine(const string& text)
     {
-        cout << str << endl;
+        cerr << text << "\n";
     }
 
-    /**
-     * @brief Writes a std::wstring to the standard output stream followed by a newline.
-     *
-     * @param str The std::wstring to write.
-     */
-    void Console::WriteLine(const std::wstring &str)
+    void ConsoleClass::ErrorStream::WriteLine(const wstring& text)
     {
-        wcout << str << endl;
+        wcerr << text << L"\n";
     }
-}
+
+    void ConsoleClass::OutStream::Write(const char* text)
+    {
+        cout << text;
+    }
+
+    void ConsoleClass::OutStream::Write(const string& text)
+    {
+        cout << text;
+    }
+
+    void ConsoleClass::OutStream::Write(const wstring& text)
+    {
+        wcout << text;
+    }
+
+    void ConsoleClass::OutStream::WriteLine(const char* text)
+    {
+        cout << text << "\n";
+    }
+
+    void ConsoleClass::OutStream::WriteLine(const string& text)
+    {
+        cout << text << "\n";
+    }
+
+    void ConsoleClass::OutStream::WriteLine(const wstring& text)
+    {
+        wcout << text << L"\n";
+    }
+
+    void ConsoleClass::Write(const char* text)
+    {
+        Out.Write(text);
+    }
+
+    void ConsoleClass::Write(const string& text)
+    {
+        Out.Write(text);
+    }
+
+    void ConsoleClass::Write(const wstring& text)
+    {
+        Out.Write(text);
+    }
+
+    void ConsoleClass::WriteLine(const char* text)
+    {
+        Out.WriteLine(text);
+    }
+
+    void ConsoleClass::WriteLine(const string& text)
+    {
+        Out.WriteLine(text);
+    }
+
+    void ConsoleClass::WriteLine(const wstring& text)
+    {
+        Out.WriteLine(text);
+    }
+
+}   // namespace ext

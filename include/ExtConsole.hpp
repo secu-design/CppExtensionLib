@@ -2,20 +2,46 @@
 
 #include <string>
 
+
 namespace ext
 {
-    class Console final
-    {
-    public:
-        static void Write(const char* str);
-        static void Write(const std::string& str);
-        static void Write(const std::wstring& str);
+    using std::string, std::wstring;
 
-        static void WriteLine(const char* str);
-        static void WriteLine(const std::string& str);
-        static void WriteLine(const std::wstring& str);
+    class ConsoleClass final
+    {
+    private:
+        struct ErrorStream final
+        {
+            void Write(const char* str);
+            void Write(const string& text);
+            void Write(const wstring& text);
+            void WriteLine(const char* str);
+            void WriteLine(const string& text);
+            void WriteLine(const wstring& text);
+        };
+
+        struct OutStream final
+        {
+            void Write(const char* text);
+            void Write(const string& text);
+            void Write(const wstring& text);
+            void WriteLine(const char* text);
+            void WriteLine(const string& text);
+            void WriteLine(const wstring& text);
+        };
+
+    public:
+        ErrorStream Error;
+        OutStream   Out;
+
+        void Write(const char* text);
+        void Write(const string& text);
+        void Write(const wstring& text);
+        void WriteLine(const char* text);
+        void WriteLine(const string& text);
+        void WriteLine(const wstring& text);
     };
 
-    // Alias
-    using console = Console;
-}
+    extern ConsoleClass Console;
+
+}   // namespace ext
