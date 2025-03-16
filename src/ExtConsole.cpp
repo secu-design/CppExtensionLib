@@ -13,62 +13,62 @@ namespace ext
     ConsoleClass Console;
 
 
-    void ConsoleClass::ErrorStream::Write(const char* str)
+    void ConsoleClass::Error::Write(const char* str)
     {
         cerr << str;
     }
 
-    void ConsoleClass::ErrorStream::Write(const string& text)
+    void ConsoleClass::Error::Write(const string& text)
     {
         cerr << text;
     }
 
-    void ConsoleClass::ErrorStream::Write(const wstring& text)
+    void ConsoleClass::Error::Write(const wstring& text)
     {
         wcerr << text;
     }
 
-    void ConsoleClass::ErrorStream::WriteLine(const char* str)
+    void ConsoleClass::Error::WriteLine(const char* str)
     {
         cerr << str << "\n";
     }
 
-    void ConsoleClass::ErrorStream::WriteLine(const string& text)
+    void ConsoleClass::Error::WriteLine(const string& text)
     {
         cerr << text << "\n";
     }
 
-    void ConsoleClass::ErrorStream::WriteLine(const wstring& text)
+    void ConsoleClass::Error::WriteLine(const wstring& text)
     {
         wcerr << text << L"\n";
     }
 
-    void ConsoleClass::OutStream::Write(const char* text)
+    void ConsoleClass::Out::Write(const char* text)
     {
         cout << text;
     }
 
-    void ConsoleClass::OutStream::Write(const string& text)
+    void ConsoleClass::Out::Write(const string& text)
     {
         cout << text;
     }
 
-    void ConsoleClass::OutStream::Write(const wstring& text)
+    void ConsoleClass::Out::Write(const wstring& text)
     {
         wcout << text;
     }
 
-    void ConsoleClass::OutStream::WriteLine(const char* text)
+    void ConsoleClass::Out::WriteLine(const char* text)
     {
         cout << text << "\n";
     }
 
-    void ConsoleClass::OutStream::WriteLine(const string& text)
+    void ConsoleClass::Out::WriteLine(const string& text)
     {
         cout << text << "\n";
     }
 
-    void ConsoleClass::OutStream::WriteLine(const wstring& text)
+    void ConsoleClass::Out::WriteLine(const wstring& text)
     {
         wcout << text << L"\n";
     }

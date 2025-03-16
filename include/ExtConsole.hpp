@@ -7,10 +7,9 @@ namespace ext
 {
     using std::string, std::wstring;
 
-    class ConsoleClass final
+    struct ConsoleClass final
     {
-    private:
-        struct ErrorStream final
+        struct Error final
         {
             void Write(const char* str);
             void Write(const string& text);
@@ -18,9 +17,9 @@ namespace ext
             void WriteLine(const char* str);
             void WriteLine(const string& text);
             void WriteLine(const wstring& text);
-        };
+        } Error;
 
-        struct OutStream final
+        struct Out final
         {
             void Write(const char* text);
             void Write(const string& text);
@@ -28,11 +27,7 @@ namespace ext
             void WriteLine(const char* text);
             void WriteLine(const string& text);
             void WriteLine(const wstring& text);
-        };
-
-    public:
-        ErrorStream Error;
-        OutStream   Out;
+        } Out;
 
         void Write(const char* text);
         void Write(const string& text);
