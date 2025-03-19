@@ -9,10 +9,10 @@ namespace ext
     struct Integer
     {
         template <typename T>
-        static std::string ToHex(const T number);
+        static std::string ToHex(T number);
 
         template <typename T>
-        static std::string ToString(const T number);
+        static std::string ToString(T number);
     };
 
     template<typename T>
