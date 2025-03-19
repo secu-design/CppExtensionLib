@@ -1,16 +1,16 @@
 include(AddGoogleTest)
 
 add_executable(
-        unit_tests
-        "Test_ExtString.cpp"
-        "Test_ExtConsole.cpp"
-        "Test_ExtInteger.cpp"
-)
+    unit_tests
+    "Test_ExtString.cpp"
+    "Test_ExtConsole.cpp"
+    "Test_ExtInteger_GNU.cpp"
+    "Test_ExtInteger_MSVC.cpp")
 
 target_link_libraries(
-        unit_tests
-        PRIVATE CppExtensionLibStatic
-        GTest::gtest_main
+    unit_tests
+    PRIVATE CppExtensionLibStatic
+    GTest::gtest_main
 )
 
 include(GoogleTest)
