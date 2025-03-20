@@ -4,8 +4,13 @@ add_executable(
     unit_tests
     "Test_ExtString.cpp"
     "Test_ExtConsole.cpp"
-    "Test_ExtInteger_GNU.cpp"
-    "Test_ExtInteger_MSVC.cpp")
+)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    target_sources(unit_tests PRIVATE "Test_ExtInteger_GNU.cpp")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_sources(unit_tests PRIVATE "Test_ExtInteger_MSVC.cpp")
+endif ()
 
 target_link_libraries(
     unit_tests
