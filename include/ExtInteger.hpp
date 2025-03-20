@@ -6,7 +6,7 @@
 
 namespace ext
 {
-    struct Integer
+    struct Integer final
     {
         template <typename T>
         static std::string ToHex(T number);
@@ -31,7 +31,7 @@ namespace ext
             std::is_same_v<T, unsigned char> ||
             std::is_same_v<T, signed char>)
         {
-            hexStream << static_cast<unsigned int>(static_cast<unsigned char>(number));
+            hexStream << static_cast<unsigned long>(static_cast<unsigned char>(number));
         }
         else
         {
@@ -53,7 +53,7 @@ namespace ext
             std::is_same_v<T, unsigned char> ||
             std::is_same_v<T, signed char>)
         {
-            strStream << static_cast<int>(number);
+            strStream << static_cast<unsigned long>(number);
         }
         else
         {
