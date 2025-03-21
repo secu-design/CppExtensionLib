@@ -3,7 +3,7 @@
 #include <string>
 
 
-namespace ext
+namespace ext::System
 {
     using std::string, std::wstring;
 
@@ -39,4 +39,4 @@ namespace ext
 
     extern ConsoleClass Console;
 
-}   // namespace ext
+}   // namespace ext::System

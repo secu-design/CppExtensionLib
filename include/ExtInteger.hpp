@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-namespace ext
+namespace ext::System
 {
     struct Integer final
     {
@@ -63,4 +63,4 @@ namespace ext
         return strStream.str();
     }
 
-}   // namespace ext
+}   // namespace ext::System

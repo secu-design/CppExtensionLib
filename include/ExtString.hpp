@@ -2,7 +2,8 @@
 
 #include <string>
 
-namespace ext
+
+namespace ext::System
 {
     class String : public std::string
     {
@@ -33,4 +34,5 @@ namespace ext
 
     // Alias
     using string = String;
-}
+
+}   // namespace ext::System

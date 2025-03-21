@@ -3,7 +3,7 @@
 #include "ExtConsole.hpp"
 
 
-namespace ext
+namespace ext::System
 {
     using
         std::cout, std::cerr,

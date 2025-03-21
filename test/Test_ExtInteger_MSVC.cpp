@@ -4,7 +4,7 @@
 
 #include "ExtInteger.hpp"
 
-using namespace ext;
+using namespace ext::System;
 
 
 // Signed integers - Max values

@@ -1,9 +1,10 @@
-#include "../include/ExtString.hpp"
+#include "ExtString.hpp"
 
 #include <cctype>     // std::tolower, std::toupper
 #include <algorithm>  // std::transform
 
-namespace ext
+
+namespace ext::System
 {
     // Initialize the static constants
 
@@ -94,4 +95,5 @@ namespace ext
         });
         return str;
     }
-}
+
+}   // namespace ext::System
