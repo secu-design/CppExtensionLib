@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "ExtString.hpp"
+#include "String.hpp"
 
 using namespace ext::System;
 

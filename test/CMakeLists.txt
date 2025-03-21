@@ -2,14 +2,14 @@ include(AddGoogleTest)
 
 add_executable(
     unit_tests
-    "Test_ExtString.cpp"
-    "Test_ExtConsole.cpp"
+    "Test_String.cpp"
+    "Test_Console.cpp"
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_sources(unit_tests PRIVATE "Test_ExtInteger_GNU.cpp")
+    target_sources(unit_tests PRIVATE "Test_Integer_GNU.cpp")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_sources(unit_tests PRIVATE "Test_ExtInteger_MSVC.cpp")
+    target_sources(unit_tests PRIVATE "Test_Integer_MSVC.cpp")
 endif ()
 
 target_link_libraries(

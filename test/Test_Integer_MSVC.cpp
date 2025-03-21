@@ -2,7 +2,7 @@
 
 #include <limits>
 
-#include "ExtInteger.hpp"
+#include "Integer.hpp"
 
 using namespace ext::System;
 

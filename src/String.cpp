@@ -1,4 +1,4 @@
-#include "ExtString.hpp"
+#include "String.hpp"
 
 #include <cctype>     // std::tolower, std::toupper
 #include <algorithm>  // std::transform

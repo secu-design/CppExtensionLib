@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "ExtConsole.hpp"
+#include "Console.hpp"
 
 
 namespace ext::System

@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "ExtConsole.hpp"
+#include "Console.hpp"
 
 using namespace ext::System;
 

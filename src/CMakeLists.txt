@@ -1,7 +1,7 @@
 # Add source files
 set(SOURCE_FILES
-        "ExtString.cpp"
-        "ExtConsole.cpp"
+        "String.cpp"
+        "Console.cpp"
 )
 
 # Configure targets
