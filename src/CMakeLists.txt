@@ -1,10 +1,13 @@
 # Add source files
+
 set(SOURCE_FILES
-    "System/String.cpp"
-    "System/Console.cpp"
-    "System/Security/Crypto.cpp")
+   "System/String.cpp"
+   "System/Console.cpp"
+   "System/Security/Crypto.cpp" )
 
 # Configure targets
+#add_library(CppExtensionLib SHARED ${SOURCE_FILES} "pch.cpp")
+#add_library(CppExtensionLibStatic STATIC ${SOURCE_FILES} "pch.cpp")
 add_library(CppExtensionLib SHARED ${SOURCE_FILES})
 add_library(CppExtensionLibStatic STATIC ${SOURCE_FILES})
 add_custom_target(AllTargets DEPENDS CppExtensionLib CppExtensionLibStatic)
@@ -24,3 +27,11 @@ target_include_directories(CppExtensionLibStatic PUBLIC
     ${CMAKE_SOURCE_DIR}/include/System
     ${CMAKE_SOURCE_DIR}/include/System/Security
 )
+
+# Precompiled headers
+#target_precompile_headers(CppExtensionLib PUBLIC "pch.h")
+#target_precompile_headers(CppExtensionLibStatic PUBLIC "pch.h")
+
+# Link libraries
+#target_link_libraries(CppExtensionLib PUBLIC pch)
+#target_link_libraries(CppExtensionLibStatic PUBLIC pch)

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Crypto.hpp"
 
 #include "Integer.hpp"
