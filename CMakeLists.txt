@@ -6,6 +6,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
 set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/CMake/toolchain-general.cmake")
 
 # Output the compiler information
+message(STATUS "CMake Version: ${CMAKE_VERSION}")
 message(STATUS "C Compiler: ${CMAKE_C_COMPILER}")
 message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER}")
 message(STATUS "C++ Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
