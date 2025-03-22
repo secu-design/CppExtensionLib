@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "String.hpp"
 
 #include <cctype>     // std::tolower, std::toupper
