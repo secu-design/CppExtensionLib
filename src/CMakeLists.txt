@@ -2,7 +2,7 @@
 set(SOURCE_FILES
     "System/String.cpp"
     "System/Console.cpp"
-)
+    "System/Security/Crypto.cpp")
 
 # Configure targets
 add_library(CppExtensionLib SHARED ${SOURCE_FILES})
@@ -17,8 +17,10 @@ set_target_properties(CppExtensionLib PROPERTIES
 target_include_directories(CppExtensionLib PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/include/System
+    ${CMAKE_SOURCE_DIR}/include/System/Security
 )
 target_include_directories(CppExtensionLibStatic PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/include/System
+    ${CMAKE_SOURCE_DIR}/include/System/Security
 )
