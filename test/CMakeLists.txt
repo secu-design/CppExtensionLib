@@ -7,11 +7,7 @@ add_executable(
     "Test_Crypto_Caesar.cpp"
 )
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_sources(unit_tests PRIVATE "Test_Integer_GNU.cpp")
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_sources(unit_tests PRIVATE "Test_Integer_MSVC.cpp")
-endif ()
+target_sources(unit_tests PRIVATE "Test_Integer.cpp")
 
 target_link_libraries(
     unit_tests
