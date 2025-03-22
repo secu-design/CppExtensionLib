@@ -4,6 +4,7 @@ add_executable(
     unit_tests
     "Test_String.cpp"
     "Test_Console.cpp"
+    "Test_Crypto_Caesar.cpp"
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
