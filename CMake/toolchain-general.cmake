@@ -14,7 +14,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
    # Compiler flags
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /Yu\"pch.h\" /ifcOutput /W3 /GS /Zc:wchar_t /Gm- /sdl /Zc:inline /fp:precise /D \"_UNICODE\" /D \"UNICODE\" /errorReport:prompt /WX- /Zc:forScope /Gd /FC /EHsc /nologo /diagnostics:column")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /ifcOutput /W3 /GS /Zc:wchar_t /Gm- /sdl /Zc:inline /fp:precise /D \"_UNICODE\" /D \"UNICODE\" /errorReport:prompt /WX- /Zc:forScope /Gd /FC /EHsc /nologo /diagnostics:column")
    # Compiler flags - DEBUG
    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /D \"DEBUG\" /JMC /ZI /Od /RTC1 /MDd")
    # Compiler flags - RELEASE

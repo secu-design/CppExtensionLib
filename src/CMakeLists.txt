@@ -16,17 +16,14 @@ set_target_properties(CppExtensionLib PROPERTIES
 )
 
 # Include directories
-target_include_directories(CppExtensionLib PUBLIC
+set(COMMON_INCLUDE_DIRS
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/include/System
     ${CMAKE_SOURCE_DIR}/include/System/Security
 )
-target_include_directories(CppExtensionLibStatic PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/include/System
-    ${CMAKE_SOURCE_DIR}/include/System/Security
-)
+target_include_directories(CppExtensionLib PUBLIC ${COMMON_INCLUDE_DIRS})
+target_include_directories(CppExtensionLibStatic PUBLIC ${COMMON_INCLUDE_DIRS})
 
 # Precompiled headers
-target_precompile_headers(CppExtensionLib PUBLIC "${CMAKE_SOURCE_DIR}/include/pch.h")
 target_precompile_headers(CppExtensionLibStatic PUBLIC "${CMAKE_SOURCE_DIR}/include/pch.h")
+target_precompile_headers(CppExtensionLib REUSE_FROM CppExtensionLibStatic)
