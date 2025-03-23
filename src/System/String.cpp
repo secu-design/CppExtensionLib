@@ -1,7 +1,7 @@
 #include "String.hpp"
 
-#include <cctype>     // std::tolower, std::toupper
 #include <algorithm>  // std::transform
+#include <cctype>     // std::tolower, std::toupper, std::isxdigit
 
 
 namespace ext::System
@@ -14,7 +14,7 @@ namespace ext::System
     const char String::FORM_FEED{'\f'};
     const char String::CARRIAGE_RETURN{'\r'};
     const char String::SPACE{' '};
-    const char* String::WHITESPACE_CHARS{" \t\n\v\f\r"};
+    const char *String::WHITESPACE_CHARS{" \t\n\v\f\r"};
 
     // Implementation of the extended methods
 
@@ -96,4 +96,17 @@ namespace ext::System
         return str;
     }
 
-}   // namespace ext::System
+    bool String::isHex(const std::string& text)
+    {
+        return std::all_of(text.begin(), text.end(), [](const char& c)
+        {
+            return std::isxdigit(c);
+        });
+    }
+
+    bool String::isHex() const
+    {
+        return isHex(*this);
+    }
+
+} // namespace ext::System

@@ -22,6 +22,9 @@ namespace ext::System
         [[nodiscard]] String ToLower_Ascii7() const;
         [[nodiscard]] String ToUpper_Ascii7() const;
 
+        [[nodiscard]] static bool isHex(const std::string& text);
+        [[nodiscard]] bool        isHex() const;
+
         // Constants
         static const char TAB;
         static const char NEWLINE;
