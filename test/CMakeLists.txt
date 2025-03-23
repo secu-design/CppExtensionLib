@@ -5,6 +5,7 @@ add_executable(
     "Test_String.cpp"
     "Test_Console.cpp"
     "Test_Integer_ToHex.cpp"
+    "Test_Integer_ToString.cpp"
     "Test_Crypto_Caesar.cpp"
 )
 
