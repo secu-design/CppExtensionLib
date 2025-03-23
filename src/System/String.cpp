@@ -2,6 +2,7 @@
 
 #include <algorithm>  // std::transform
 #include <cctype>     // std::tolower, std::toupper, std::isxdigit
+#include <stdexcept>
 
 
 namespace ext::System
@@ -180,6 +181,34 @@ namespace ext::System
         {
             return std::isxdigit(c);
         });
+    }
+
+    /**
+     * @brief Converts a hexadecimal string to an integer.
+     *
+     * This function takes a string representing a hexadecimal number and converts it to an integer.
+     *
+     * @param textHex The hexadecimal string to convert.
+     * @return The integer value of the hexadecimal string.
+     * @throws std::invalid_argument if the input is not a valid hexadecimal string.
+     * @throws std::out_of_range if the input is out of range for an integer.
+     */
+    int String::HexToInt(const std::string& textHex)
+    {
+        constexpr int BASE_HEX{ 16 };
+
+        try
+        {
+            return std::stoi(textHex, nullptr, BASE_HEX);
+        }
+        catch (const std::invalid_argument&)
+        {
+            throw std::invalid_argument("Invalid parameter 'textHex': " + textHex);
+        }
+        catch (const std::out_of_range&)
+        {
+            throw std::out_of_range("Parameter out of range 'textHex': " + textHex);
+        }
     }
 
 } // namespace ext::System

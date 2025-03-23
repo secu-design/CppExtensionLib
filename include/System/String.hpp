@@ -12,7 +12,7 @@ namespace ext::System
         using std::string::string;
 
         // Conversion constructors
-        explicit String(const std::string& str) : std::string{str} {}
+        explicit String(const std::string& str) : std::string{ str } {}
 
         // Extended instance methods
         [[nodiscard]] String TrimStart() const;
@@ -30,13 +30,15 @@ namespace ext::System
         [[nodiscard]] static std::string ToUpper_Ascii7(std::string text);
         [[nodiscard]] static bool        isHex(const std::string& text);
 
+        [[nodiscard]] static int         HexToInt(const std::string& hexText);
+
         // Constants
-        static const char TAB;
-        static const char NEWLINE;
-        static const char VERTICAL_TAB;
-        static const char FORM_FEED;
-        static const char CARRIAGE_RETURN;
-        static const char SPACE;
+        static const char  TAB;
+        static const char  NEWLINE;
+        static const char  VERTICAL_TAB;
+        static const char  FORM_FEED;
+        static const char  CARRIAGE_RETURN;
+        static const char  SPACE;
         static const char* WHITESPACE_CHARS;
     };
 
