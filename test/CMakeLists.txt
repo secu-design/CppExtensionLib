@@ -2,9 +2,9 @@ include(AddGoogleTest)
 
 add_executable(
     unit_tests
-    "Test_Integer.cpp"
     "Test_String.cpp"
     "Test_Console.cpp"
+    "Test_Integer_ToHex.cpp"
     "Test_Crypto_Caesar.cpp"
 )
 
