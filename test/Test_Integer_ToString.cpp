@@ -6,6 +6,7 @@
 
 using namespace ext::System;
 
+
 // Signed integers - Max values
 
 TEST(Integer_ToString, Char_MaxValue)
@@ -26,10 +27,24 @@ TEST(Integer_ToString, Int_MaxValue)
     EXPECT_EQ(Integer::ToString(value), "2147483647");
 }
 
-TEST(Integer_ToString, Long_MaxValue)
+#ifdef _MSC_VER
+    TEST(Integer_ToString, Long_MaxValue)
+    {
+        constexpr long value = std::numeric_limits<long>::max();
+        EXPECT_EQ(Integer::ToString(value),"2147483647");
+    }
+#elif defined(__GNUC__)
+    TEST(Integer_ToString, Long_MaxValue)
+    {
+        constexpr long value = std::numeric_limits<long>::max();
+        EXPECT_EQ(Integer::ToString(value),"9223372036854775807");
+    }
+#endif
+
+TEST(Integer_ToString,LongLong_MaxValue)
 {
-    constexpr long value = std::numeric_limits<long>::max();
-    EXPECT_EQ(Integer::ToString(value), "9223372036854775807");
+    constexpr long long value = std::numeric_limits<long long>::max();
+    EXPECT_EQ(Integer::ToString(value),"9223372036854775807");
 }
 
 // Signed integers - Min values
@@ -52,10 +67,24 @@ TEST(Integer_ToString, Int_MinValue)
     EXPECT_EQ(Integer::ToString(value), "-2147483648");
 }
 
-TEST(Integer_ToString, Long_MinValue)
+#ifdef _MSC_VER
+    TEST(Integer_ToString,Long_MinValue)
+    {
+        constexpr long value = std::numeric_limits<long>::min();
+        EXPECT_EQ(Integer::ToString(value),"-2147483648");
+    }
+#elif defined(__GNUC__)
+    TEST(Integer_ToString,Long_MinValue)
+    {
+        constexpr long value = std::numeric_limits<long>::min();
+        EXPECT_EQ(Integer::ToString(value),"-9223372036854775808");
+    }
+#endif
+
+TEST(Integer_ToString,LongLong_MinValue)
 {
-    constexpr long value = std::numeric_limits<long>::min();
-    EXPECT_EQ(Integer::ToString(value), "-9223372036854775808");
+    constexpr long long value = std::numeric_limits<long long>::min();
+    EXPECT_EQ(Integer::ToString(value),"-9223372036854775808");
 }
 
 // Unsigned integers - Max values
@@ -78,10 +107,24 @@ TEST(Integer_ToString, UnsignedInt_MaxValue)
     EXPECT_EQ(Integer::ToString(value), "4294967295");
 }
 
-TEST(Integer_ToString, UnsignedLong_MaxValue)
+#ifdef _MSC_VER
+    TEST(Integer_ToString,UnsignedLong_MaxValue)
+    {
+        constexpr unsigned long value = std::numeric_limits<unsigned long>::max();
+        EXPECT_EQ(Integer::ToString(value),"4294967295");
+    }
+#elif defined(__GNUC__)
+    TEST(Integer_ToString,UnsignedLong_MaxValue)
+    {
+        constexpr unsigned long value = std::numeric_limits<unsigned long>::max();
+        EXPECT_EQ(Integer::ToString(value),"18446744073709551615");
+    }
+#endif
+
+TEST(Integer_ToString,UnsignedLongLong_MaxValue)
 {
-    constexpr unsigned long value = std::numeric_limits<unsigned long>::max();
-    EXPECT_EQ(Integer::ToString(value), "18446744073709551615");
+    constexpr unsigned long long value = std::numeric_limits<unsigned long long>::max();
+    EXPECT_EQ(Integer::ToString(value),"18446744073709551615");
 }
 
 // Other tests
