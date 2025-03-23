@@ -1,6 +1,7 @@
 #include "Crypto.hpp"
 
 #include "Integer.hpp"
+#include "String.hpp"
 #include "Util.hpp"
 
 
@@ -23,6 +24,11 @@ namespace ext::System::Cryptography
 
     std::string CryptClass::Caesar::Decrypt(const std::string& textHex, const long shift) const
     {
+        if (!String::isHex(textHex))
+        {
+            throw std::invalid_argument("Parameter 'textHex' is not a valid hexadecimal string.");
+        }
+
         constexpr int      BASE_HEX{ 16 };
         std::ostringstream decryptedTextStream;
         long               decryptedValue{};

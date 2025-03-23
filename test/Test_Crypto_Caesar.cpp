@@ -209,3 +209,12 @@ TEST(Crypto_Caesar, Decrypt_LongString)
     const std::string decryptedText{ Crypto.Caesar.Decrypt(textHex, shift) };
     EXPECT_EQ(decryptedText, text);
 }
+
+TEST(Crypto_Caesar, Decrypt_NoValidHexText)
+{
+    const std::string textHex{ "NoHexText" };
+    constexpr long    shift{ 42 };
+
+    // ReSharper disable once CppNoDiscardExpression
+    EXPECT_THROW(Crypto.Caesar.Decrypt(textHex, shift), std::invalid_argument);
+}
