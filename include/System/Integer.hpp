@@ -75,7 +75,7 @@ namespace ext::System
             std::is_same_v<T, unsigned char> ||
             std::is_same_v<T, signed char>)
         {
-            strStream << static_cast<unsigned long>(number);
+            strStream << static_cast<long>(number);
         }
         else
         {
