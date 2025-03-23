@@ -14,16 +14,21 @@ namespace ext::System
         // Conversion constructors
         explicit String(const std::string& str) : std::string{str} {}
 
-        // Extended methods
+        // Extended instance methods
         [[nodiscard]] String TrimStart() const;
         [[nodiscard]] String TrimEnd() const;
         [[nodiscard]] String Trim() const;
-
         [[nodiscard]] String ToLower_Ascii7() const;
         [[nodiscard]] String ToUpper_Ascii7() const;
+        [[nodiscard]] bool   isHex() const;
 
-        [[nodiscard]] static bool isHex(const std::string& text);
-        [[nodiscard]] bool        isHex() const;
+        // Extended static methods
+        [[nodiscard]] static std::string TrimStart(const std::string& text);
+        [[nodiscard]] static std::string TrimEnd(const std::string& text);
+        [[nodiscard]] static std::string Trim(std::string text);
+        [[nodiscard]] static std::string ToLower_Ascii7(std::string text);
+        [[nodiscard]] static std::string ToUpper_Ascii7(std::string text);
+        [[nodiscard]] static bool        isHex(const std::string& text);
 
         // Constants
         static const char TAB;

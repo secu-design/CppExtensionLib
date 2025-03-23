@@ -23,14 +23,9 @@ namespace ext::System
      * 
      * @returns A new string with all the leading white-space characters removed.
      */
-    string String::TrimStart() const
+    String String::TrimStart() const
     {
-        const size_type pos_start = find_first_not_of(WHITESPACE_CHARS);
-        if (pos_start == npos)
-        {
-            return {};
-        }
-        return String(substr(pos_start));
+        return String{TrimStart(*this)};
     }
 
     /**
@@ -38,14 +33,9 @@ namespace ext::System
      *
      * @returns A new string with all the trailing white-space characters removed.
      */
-    string String::TrimEnd() const
+    String String::TrimEnd() const
     {
-        const size_type pos_end = find_last_not_of(WHITESPACE_CHARS);
-        if (pos_end == npos)
-        {
-            return {};
-        }
-        return String(substr(0, pos_end + 1));
+        return String{TrimEnd(*this)};
     }
 
     /**
@@ -53,9 +43,9 @@ namespace ext::System
      *
      * @returns A new string with all the leading and trailing white-space characters removed.
      */
-    string String::Trim() const
+    String String::Trim() const
     {
-        return TrimStart().TrimEnd();
+        return String{Trim(*this)};
     }
 
     /**
@@ -67,14 +57,9 @@ namespace ext::System
      *
      * @return A new string with all characters converted to lowercase.
      */
-    string String::ToLower_Ascii7() const
+    String String::ToLower_Ascii7() const
     {
-        String str = *this;
-        std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
-        {
-            return static_cast<unsigned char>(tolower(c));
-        });
-        return str;
+        return String{ToLower_Ascii7(*this)};
     }
 
     /**
@@ -86,27 +71,115 @@ namespace ext::System
      *
      * @return A new string with all characters converted to uppercase.
      */
-    string String::ToUpper_Ascii7() const
+    String String::ToUpper_Ascii7() const
     {
-        String str = *this;
-        std::transform(str.begin(), str.end(), str.begin(), [](const unsigned char c)
-        {
-            return static_cast<unsigned char>(toupper(c));
-        });
-        return str;
+        return String{ToUpper_Ascii7(*this)};
     }
 
+    /**
+     * @brief Determines whether the string is a hexadecimal number.
+     *
+     * @return True if the string is a hexadecimal number; otherwise, false.
+     */
+    bool String::isHex() const
+    {
+        return isHex(*this);
+    }
+
+    /**
+     * @brief Removes all the leading white-space characters from the text.
+     *
+     * @param text The text to trim.
+     * @return A new string with all the leading white-space characters removed.
+     */
+    std::string String::TrimStart(const std::string& text)
+    {
+        const size_type pos_start = text.find_first_not_of(WHITESPACE_CHARS);
+        if (pos_start == std::string::npos)
+        {
+            return {};
+        }
+        return text.substr(pos_start);
+    }
+
+    /**
+     * @brief Removes all the trailing white-space characters from the text.
+     *
+     * @param text The text to trim.
+     * @return A new string with all the trailing white-space characters removed.
+     */
+    std::string String::TrimEnd(const std::string& text)
+    {
+        const size_type pos_end = text.find_last_not_of(WHITESPACE_CHARS);
+        if (pos_end == std::string::npos)
+        {
+            return {};
+        }
+        return text.substr(0, pos_end + 1);
+    }
+
+    /**
+     * @brief Removes all the leading and trailing white-space characters from the text.
+     *
+     * @param text The text to trim.
+     * @return A new string with all the leading and trailing white-space characters removed.
+     */
+    std::string String::Trim(std::string text)
+    {
+        text = TrimStart(text);
+        return TrimEnd(text);
+    }
+
+    /**
+     * @brief Converts all characters in the text to lowercase according to the character
+     * conversion rules defined by the currently installed C locale.
+     *
+     * In the default "C" locale, the following lowercase letters abcdefghijklmnopqrstuvwxyz
+     * are replaced with respective lowercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+     *
+     * @param text The text to convert.
+     * @return A new string with all characters converted to lowercase.
+     */
+    std::string String::ToLower_Ascii7(std::string text)
+    {
+        std::transform(text.begin(), text.end(), text.begin(), [](const unsigned char c)
+        {
+            return static_cast<unsigned char>(std::tolower(c));
+        });
+        return text;
+    }
+
+    /**
+     * @brief Converts all characters in the text to uppercase according to the character
+     * conversion rules defined by the currently installed C locale.
+     *
+     * In the default "C" locale, the following uppercase letters abcdefghijklmnopqrstuvwxyz
+     * are replaced with respective uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+     *
+     * @param text The text to convert.
+     * @return A new string with all characters converted to uppercase.
+     */
+    std::string String::ToUpper_Ascii7(std::string text)
+    {
+        std::transform(text.begin(), text.end(), text.begin(), [](const unsigned char c)
+        {
+            return static_cast<unsigned char>(std::toupper(c));
+        });
+        return text;
+    }
+
+    /**
+     * @brief Determines whether the string is a hexadecimal number.
+     *
+     * @param text The string to check.
+     * @return True if the string is a hexadecimal number; otherwise, false.
+     */
     bool String::isHex(const std::string& text)
     {
         return std::all_of(text.begin(), text.end(), [](const char& c)
         {
             return std::isxdigit(c);
         });
-    }
-
-    bool String::isHex() const
-    {
-        return isHex(*this);
     }
 
 } // namespace ext::System
