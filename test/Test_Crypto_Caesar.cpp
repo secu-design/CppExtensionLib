@@ -32,42 +32,34 @@ TEST(Crypto_Caesar, Decrypt)
 
 TEST(Crypto_Caesar, Encrypt_NoText)
 {
-    const std::string text("");
-    const std::string textHex{ "" };
-    constexpr long    shift{ 42 };
+    constexpr long shift{ 42 };
 
-    const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
-    EXPECT_EQ(encryptedText, textHex);
+    const std::string encryptedText{ Crypto.Caesar.Encrypt("", shift) };
+    EXPECT_EQ(encryptedText, "");
 }
 
 TEST(Crypto_Caesar, Decrypt_NoText)
 {
-    const std::string text("");
-    const std::string textHex{ "" };
-    constexpr long    shift{ 42 };
+    constexpr long shift{ 42 };
 
-    const std::string decryptedText{ Crypto.Caesar.Decrypt(textHex, shift) };
-    EXPECT_EQ(decryptedText, text);
+    const std::string decryptedText{ Crypto.Caesar.Decrypt("", shift) };
+    EXPECT_EQ(decryptedText, "");
 }
 
 TEST(Crypto_Caesar, Encrypt_NoTextShiftZero)
 {
-    const std::string text("");
-    const std::string textHex{ "" };
-    constexpr long    shift{};
+    constexpr long shift{};
 
-    const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
-    EXPECT_EQ(encryptedText, textHex);
+    const std::string encryptedText{ Crypto.Caesar.Encrypt("", shift) };
+    EXPECT_EQ(encryptedText, "");
 }
 
 TEST(Crypto_Caesar, Decrypt_NoTextShiftZero)
 {
-    const std::string text("");
-    const std::string textHex{ "" };
-    constexpr long    shift{};
+    constexpr long shift{};
 
-    const std::string decryptedText{ Crypto.Caesar.Decrypt(textHex, 0) };
-    EXPECT_EQ(decryptedText, text);
+    const std::string decryptedText{ Crypto.Caesar.Decrypt("", shift) };
+    EXPECT_EQ(decryptedText, "");
 }
 
 // Caesar - Shift tests
@@ -112,15 +104,27 @@ TEST(Crypto_Caesar, Decrypt_NegativeShift)
     EXPECT_EQ(decryptedText, text);
 }
 
-TEST(Crypto_Caesar, Encrypt_MinShift)
-{
-    const std::string text{ "TestString" };
-    const std::string textHex{ "80000054800000658000007380000074800000538000007480000072800000698000006e80000067" };
-    constexpr long    shift{ std::numeric_limits<long>::min() };
+#ifdef _MSC_VER
+    TEST(Crypto_Caesar, Encrypt_MinShift)
+    {
+        const std::string text{ "TestString" };
+        const std::string textHex{ "80000054800000658000007380000074800000538000007480000072800000698000006e80000067" };
+        constexpr long    shift{ std::numeric_limits<long>::min() };
 
-    const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
-    EXPECT_EQ(encryptedText, textHex);
-}
+        const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
+        EXPECT_EQ(encryptedText, textHex);
+    }
+#elif defined(__GNUC__)
+    TEST(Crypto_Caesar, Encrypt_MinShift)
+    {
+        const std::string text{ "TestString" };
+        const std::string textHex{ "80000000000000548000000000000065800000000000007380000000000000748000000000000053800000000000007480000000000000728000000000000069800000000000006e8000000000000067" };
+        constexpr long    shift{ std::numeric_limits<long>::min() };
+
+        const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
+        EXPECT_EQ(encryptedText, textHex);
+    }
+#endif
 
 TEST(Crypto_Caesar, Decrypt_MinShift)
 {
@@ -132,15 +136,27 @@ TEST(Crypto_Caesar, Decrypt_MinShift)
     EXPECT_EQ(decryptedText, text);
 }
 
-TEST(Crypto_Caesar, Encrypt_MaxShift)
-{
-    const std::string text{ "TestString" };
-    const std::string textHex{ "80000053800000648000007280000073800000528000007380000071800000688000006d80000066" };
-    constexpr long    shift{ std::numeric_limits<long>::max() };
+#ifdef _MSC_VER
+    TEST(Crypto_Caesar, Encrypt_MaxShift)
+    {
+        const std::string text{ "TestString" };
+        const std::string textHex{ "80000053800000648000007280000073800000528000007380000071800000688000006d80000066" };
+        constexpr long    shift{ std::numeric_limits<long>::max() };
 
-    const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
-    EXPECT_EQ(encryptedText, textHex);
-}
+        const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
+        EXPECT_EQ(encryptedText, textHex);
+    }
+#elif defined(__GNUC__)
+    TEST(Crypto_Caesar, Encrypt_MaxShift)
+    {
+        const std::string text{ "TestString" };
+        const std::string textHex{ "80000000000000538000000000000064800000000000007280000000000000738000000000000052800000000000007380000000000000718000000000000068800000000000006d8000000000000066" };
+        constexpr long    shift{ std::numeric_limits<long>::max() };
+
+        const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
+        EXPECT_EQ(encryptedText, textHex);
+    }
+#endif
 
 TEST(Crypto_Caesar, Decrypt_MaxShift)
 {
