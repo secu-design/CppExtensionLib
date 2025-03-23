@@ -10,21 +10,21 @@ namespace ext::System::Cryptography
 
     std::string CryptClass::Caesar::Encrypt(const std::string& text, const long shift) const
     {
-        std::ostringstream encryptedStream;
+        std::ostringstream encryptedTextStream;
 
         for (const char& c : text)
         {
             const long shiftedChar = c + shift;
-            encryptedStream << Integer::ToHex(shiftedChar);
+            encryptedTextStream << Integer::ToHex(shiftedChar);
         }
 
-        return encryptedStream.str();
+        return encryptedTextStream.str();
     }
 
     std::string CryptClass::Caesar::Decrypt(const std::string& textHex, const long shift) const
     {
         constexpr int      BASE_HEX{ 16 };
-        std::ostringstream decryptedStream;
+        std::ostringstream decryptedTextStream;
         long               decryptedValue{};
         char               decryptedChar{};
 
@@ -34,10 +34,10 @@ namespace ext::System::Cryptography
 
             decryptedValue = std::stol(hexSubstring, nullptr, BASE_HEX) - shift;
             decryptedChar = narrow_cast<char>(decryptedValue);
-            decryptedStream << decryptedChar;
+            decryptedTextStream << decryptedChar;
         }
 
-        return decryptedStream.str();
+        return decryptedTextStream.str();
     }
 
 }   // namespace ext::System::Cryptography
