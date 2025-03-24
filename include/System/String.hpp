@@ -30,7 +30,7 @@ namespace ext::System
         [[nodiscard]] static std::string ToUpper_Ascii7(std::string text);
         [[nodiscard]] static bool        isHex(const std::string& text);
 
-        [[nodiscard]] static int         HexToInt(const std::string& hexText);
+        [[nodiscard]] static long long   HexToInt(const std::string& hexText);
 
         // Constants
         static const char  TAB;

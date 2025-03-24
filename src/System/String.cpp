@@ -193,13 +193,13 @@ namespace ext::System
      * @throws std::invalid_argument if the input is not a valid hexadecimal string.
      * @throws std::out_of_range if the input is out of range for an integer.
      */
-    int String::HexToInt(const std::string& textHex)
+    long long String::HexToInt(const std::string& textHex)
     {
         constexpr int BASE_HEX{ 16 };
 
         try
         {
-            return std::stoi(textHex, nullptr, BASE_HEX);
+            return std::stoll(textHex, nullptr, BASE_HEX);
         }
         catch (const std::invalid_argument&)
         {
