@@ -68,4 +68,23 @@ namespace ext::System::Cryptography
         return decryptedTextStream.str();
     }
 
+    std::string CryptClass::Xor::Encrypt(const std::string& text, const std::string& key) const
+    {
+        std::string encryptedText = text;
+
+        for (size_t i = 0; i < text.length(); ++i)
+        {
+            encryptedText.at(i) ^= key.at(i % key.length());
+        }
+
+        return encryptedText;
+    }
+
+    std::string CryptClass::Xor::Decrypt(const std::string& text, const std::string& key) const
+    {
+        std::string decryptedText = CryptClass::Xor::Encrypt(text, key);
+
+        return decryptedText;
+    }
+
 }   // namespace ext::System::Cryptography

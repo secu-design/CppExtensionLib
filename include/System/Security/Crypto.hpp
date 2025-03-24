@@ -16,6 +16,12 @@ namespace ext::System::Cryptography
         private:
             static constexpr auto SHIFT_LIMIT{ 256 };
         } Caesar;
+
+        struct Xor final
+        {
+            [[nodiscard]] std::string Encrypt(const std::string& text, const std::string& key) const;
+            [[nodiscard]] std::string Decrypt(const std::string& text, const std::string& key) const;
+        } Xor;
     };
 
     extern CryptClass Crypto;
