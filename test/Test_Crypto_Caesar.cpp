@@ -107,7 +107,7 @@ TEST(Crypto_Caesar, Encrypt_MinShift)
 {
     const std::string text{ "TestString" };
     const std::string textHex{ "54657374537472696e67" };
-    constexpr short   shift{ std::numeric_limits<short>::min() };
+    constexpr long    shift{ std::numeric_limits<long>::min() };
 
     const std::string encryptedText{ Crypto.Caesar.Encrypt(text, shift) };
     EXPECT_EQ(encryptedText, textHex);
@@ -117,7 +117,7 @@ TEST(Crypto_Caesar, Decrypt_MinShift)
 {
     const std::string text{ "TestString" };
     const std::string textHex{ "54657374537472696e67" };
-    constexpr short   shift{ std::numeric_limits<short>::min() };
+    constexpr long    shift{ std::numeric_limits<long>::min() };
 
     const std::string decryptedText{ Crypto.Caesar.Decrypt(textHex, shift) };
     EXPECT_EQ(decryptedText, text);
