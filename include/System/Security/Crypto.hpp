@@ -12,9 +12,6 @@ namespace ext::System::Cryptography
         {
             [[nodiscard]] std::string Encrypt(const std::string& text, const char shift) const;
             [[nodiscard]] std::string Decrypt(const std::string& textHex, const char shift) const;
-
-        private:
-            static constexpr auto SHIFT_LIMIT{ 256 };
         } Caesar;
 
         struct Xor final
