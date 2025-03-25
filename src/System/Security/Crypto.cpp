@@ -22,7 +22,7 @@ namespace ext::System::Cryptography
     {
         std::ostringstream encryptedTextStream;
 
-        for (const char c : text)
+        for (const char& c : text)
         {
             const auto shiftedChar = c + shift;
             encryptedTextStream << Integer::ToHex(shiftedChar);
@@ -57,22 +57,25 @@ namespace ext::System::Cryptography
         return decryptedTextStream.str();
     }
 
-    std::string CryptClass::Xor::Encrypt(const std::string& text, const std::string& key) const
+    std::string CryptClass::Xor::Encrypt(const std::string& text, const char key) const
     {
         std::string encryptedText = text;
 
-        for (size_t i = 0; i < text.length(); ++i)
+        for (char& c : encryptedText)
         {
-            encryptedText.at(i) ^= key.at(i % key.length());
+            c ^= key;
         }
-
         return encryptedText;
     }
 
-    std::string CryptClass::Xor::Decrypt(const std::string& text, const std::string& key) const
+    std::string CryptClass::Xor::Decrypt(const std::string& text, const char key) const
     {
-        std::string decryptedText = CryptClass::Xor::Encrypt(text, key);
+        std::string decryptedText = text;
 
+        for (char& c : decryptedText)
+        {
+            c ^= key;
+        }
         return decryptedText;
     }
 

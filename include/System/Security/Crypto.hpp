@@ -16,8 +16,8 @@ namespace ext::System::Cryptography
 
         struct Xor final
         {
-            [[nodiscard]] std::string Encrypt(const std::string& text, const std::string& key) const;
-            [[nodiscard]] std::string Decrypt(const std::string& text, const std::string& key) const;
+            [[nodiscard]] std::string Encrypt(const std::string& text, const char key) const;
+            [[nodiscard]] std::string Decrypt(const std::string& text, const char key) const;
         } Xor;
     };
 
