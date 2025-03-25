@@ -10,8 +10,8 @@ namespace ext::System::Cryptography
     {
         struct Caesar final
         {
-            [[nodiscard]] std::string Encrypt(const std::string& text, long shift) const;
-            [[nodiscard]] std::string Decrypt(const std::string& textHex, long shift) const;
+            [[nodiscard]] std::string Encrypt(const std::string& text, const char shift) const;
+            [[nodiscard]] std::string Decrypt(const std::string& textHex, const char shift) const;
 
         private:
             static constexpr auto SHIFT_LIMIT{ 256 };
