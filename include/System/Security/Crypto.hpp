@@ -5,7 +5,6 @@
 
 namespace ext::System::Cryptography
 {
-
     struct CryptClass final
     {
         struct Caesar final
@@ -24,3 +23,4 @@ namespace ext::System::Cryptography
     constexpr CryptClass Crypto;
 
 }   // namespace ext::System::Cryptography
+ 
