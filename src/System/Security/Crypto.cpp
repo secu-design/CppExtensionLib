@@ -6,8 +6,6 @@
 
 namespace ext::System::Cryptography
 {
-    CryptClass Crypto;
-
     /**
      * @brief Encrypts a string using the Caesar cipher algorithm.
      *

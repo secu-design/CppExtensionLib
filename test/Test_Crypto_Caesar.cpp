@@ -7,6 +7,7 @@
 
 using namespace ext::System::Cryptography;
 
+
 // Caesar - Basic tests
 
 TEST(Crypto_Caesar, Encrypt)

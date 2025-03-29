@@ -21,6 +21,6 @@ namespace ext::System::Cryptography
         } Xor;
     };
 
-    extern CryptClass Crypto;
+    constexpr CryptClass Crypto;
 
 }   // namespace ext::System::Cryptography
